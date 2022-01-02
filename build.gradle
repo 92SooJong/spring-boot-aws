@@ -11,19 +11,14 @@ buildscript{
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+
+plugins { // (1)
+    id 'org.springframework.boot' version '2.4.1' // RELEASE 삭제
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
 
 
-//plugins {
-    //id 'java'
-    //id 'eclipse'
-    //id 'org.springframework.boot'
-    //id 'io.spring.dependency-management'
-
-//}
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -33,12 +28,21 @@ repositories {
     jcenter()
 }
 
+// for Junit 5
+test { // (2)
+    useJUnitPlatform()
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     // 버전을 명시하지 않아야 상단에 작성한 class path의 버전을 따라감.
     implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+    implementation('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    testImplementation('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+
 }
 
 test {
