@@ -30,4 +30,12 @@ public class Posts {
         this.content = content;
         this.author = author;
     }
+
+    // setter보다 명시적인 메소드로 변경작업을 하는게 좋다.(의도 파악하기가 쉬움)
+    public void update(String title,String content){
+        this.title = title;
+        this.content = content;
+    }
+
+
 }
