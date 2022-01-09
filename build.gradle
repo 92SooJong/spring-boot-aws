@@ -52,6 +52,13 @@ dependencies {
     // OAuth2
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
 
+    // jdbc를 통한 세션 저장
+    implementation('org.springframework.session:spring-session-jdbc')
+
+    // 스프링 시큐리티 테스트를 위한 의존성 추가
+    testImplementation("org.springframework.security:spring-security-test")
+
+
 }
 
 test {
