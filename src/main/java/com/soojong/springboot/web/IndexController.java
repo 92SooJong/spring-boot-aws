@@ -1,5 +1,6 @@
 package com.soojong.springboot.web;
 
+import com.soojong.springboot.config.auth.LoginUser;
 import com.soojong.springboot.config.auth.dto.SessionUser;
 import com.soojong.springboot.service.posts.PostsService;
 import com.soojong.springboot.web.dto.PostsResponseDto;
@@ -19,11 +20,10 @@ public class IndexController {
     private final HttpSession httpSession;
     
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc());
             
         // 현재 세션의 사용자 정보를 가져온다
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null){
             model.addAttribute("userName" , user.getName());
         }
