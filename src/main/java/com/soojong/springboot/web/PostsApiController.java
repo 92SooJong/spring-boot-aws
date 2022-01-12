@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin
 public class PostsApiController {
 
     private final PostsService postsService;
