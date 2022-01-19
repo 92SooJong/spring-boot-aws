@@ -1,10 +1,10 @@
-version: 1.0
-os: linux
-files:
-  - source: / # TODO - jenkins 서버의 어느 위치에 빌드되는지 확인후 작성하기
-    destination:  /home/ec2-user/app/step1 # target Ec2 인스턴스내 어디에 저장할지
-hooks:
-  ApplicationStart:
-    - location: scripts/deploy.sh # 재작성필요
-      timeout: 300
-      runas: root
+#version: 1.0
+#os: linux
+#files:
+#  - source: / # TODO - jenkins 서버의 어느 위치에 빌드되는지 확인후 작성하기
+#    destination:  /home/ec2-user/app/step1 # target Ec2 인스턴스내 어디에 저장할지
+#hooks:
+#  ApplicationStart:
+#    - location: scripts/deploy.sh # 재작성필요
+#      timeout: 300
+#      runas: root
