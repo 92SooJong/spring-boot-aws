@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // antMatchers 권한 관리 대상을 지정함
                 // permitAll()은 어떤 사용자든 접근이 가능하다.
                 // "/api/v1/**"은 USER 권한을 가진 사람만 사용이 가능하다
-                .antMatchers("/","/css/**","/images/**","/js/**","/h2-console/**").permitAll()
+                .antMatchers("/","/css/**","/images/**","/js/**","/h2-console/**","/profile").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                 // 위에 언급된 자원을 제외한 요청(anyRequest())은 권한이 반드시 있어야한다(authenticated())
                 .anyRequest().authenticated()
